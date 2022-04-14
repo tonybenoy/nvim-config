@@ -29,14 +29,16 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim',  {'branch': 'master', 'do': 'yarn install'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'f-person/git-blame.nvim'
 Plug 'puremourning/vimspector'
 Plug 'wbthomason/packer.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'jghauser/mkdir.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -52,3 +54,4 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden=1
+lua require('init')
